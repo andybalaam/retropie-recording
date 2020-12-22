@@ -25,7 +25,7 @@ echo "=== Compiling codecs from source ==="
 
 echo "--- X264 Codec"
 cd ~/ffmpeg_sources
-git clone git://git.videolan.org/x264
+git clone https://code.videolan.org/videolan/x264.git
 cd x264
 ./configure --prefix=/usr --host=arm-unknown-linux-gnueabi --enable-shared --disable-opencl
 make -j2
