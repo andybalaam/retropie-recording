@@ -19,7 +19,7 @@ mkdir -p ~/ffmpeg_build
 echo "=== Installing build tools and codecs ==="
 sudo apt-get -y install autoconf automake build-essential libass-dev libfreetype6-dev \
   libsdl1.2-dev libtheora-dev libtool libva-dev libvdpau-dev libvorbis-dev libxcb1-dev libxcb-shm0-dev \
-  libxcb-xfixes0-dev pkg-config texinfo zlib1g-dev yasm libmp3lame-dev libopus-dev
+  libxcb-xfixes0-dev pkg-config texinfo zlib1g-dev yasm libmp3lame-dev libopus-dev libatomic-ops-dev
 
 echo "=== Compiling codecs from source ==="
 
@@ -80,6 +80,7 @@ PATH="$HOME/bin:$PATH" ./configure \
   --enable-nonfree \
   --enable-pic \
   --extra-ldexeflags=-pie \
+  --extra-ldflags="-latomic" \
   --enable-shared
 
 PATH="$HOME/bin:$PATH" make -j2
