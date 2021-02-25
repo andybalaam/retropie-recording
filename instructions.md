@@ -194,7 +194,7 @@ Now you should delete the files from your RetroPie.  Log in to the RetroPie as d
 rm recording_*.mkv
 ```
 
-<span style="color: red;"><strong>Note: This deletes all your recordings, and you can't undo!</strong></span>
+**Note:** This deletes all your recordings, and you can't undo!
 
 ### Safer: recording onto a USB stick
 
