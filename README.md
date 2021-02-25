@@ -2,7 +2,7 @@
 
 Info and code for setting up the RetroPie to record gameplay videos.
 
-See the instructions at [Recording gameplay videos on RetroPie](https://www.artificialworlds.net/blog/2018/01/07/recording-gameplay-videos-on-retropie/).
+See the instructions at [Recording gameplay videos on RetroPie](instructions.md).
 
 Credits: most of the code is adapted from <a
 href="http://selsine.com/2016/10/15/how-to-record-a-game-play-video-from-a-retropie/">How
