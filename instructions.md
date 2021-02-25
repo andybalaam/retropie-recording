@@ -10,7 +10,7 @@ The code for this is here: [github.com/andybalaam/retropie-recording](https://gi
 
 Before you start, you should have RetroPie working and connected to the Internet, and updated to the latest version.
 
-<span style="color: red;"><strong>Note: you should make a backup of your RetroPie before you start, because if you type the command below you could completely break it, meaning you will have to wipe your SD card and start fresh.</strong></span>
+**Note:** you should make a backup of your RetroPie before you start, because if you type the command below you could completely break it, meaning you will have to wipe your SD card and start fresh.
 
 ## Turning on the recording feature
 
@@ -36,7 +36,7 @@ If this works right, you should see something like this:
 ![](//artificialworlds.net/blog/wp-content/uploads/retro-login.png)
 (The RetroPie Project joystick logo)
 
-* Note: if you don't have Linux, this should work OK on a Mac, or on Windows you could try using [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
+\* if you don't have Linux, this should work OK on a Mac, or on Windows you could try using [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
 
 #### Open a command line directly from the Pi
 
@@ -188,7 +188,7 @@ This will copy all recorded videos from your RetroPie onto your computer (into y
 
 Now you should delete the files from your RetroPie.  Log in to the RetroPie as described in the first section, and delete all recording files by typing this:
 
-<span style="color: red;"><strong>Note: This deletes all your recordings, and you can't undo!</strong></span>
+**Note:** This deletes all your recordings, and you can't undo!
 
 ```
 rm recording_*.mkv
