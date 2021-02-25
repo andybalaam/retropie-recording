@@ -10,13 +10,15 @@ The code for this is here: [github.com/andybalaam/retropie-recording](https://gi
 
 Before you start, you should have RetroPie working and connected to the Internet, and updated to the latest version.
 
-**Note:** you should make a backup of your RetroPie before you start, because if you type the command below you could completely break it, meaning you will have to wipe your SD card and start fresh.
+<span style="color: red;"><strong>Note: you should make a backup of your RetroPie before you start, because if you type the command below you could completely break it, meaning you will have to wipe your SD card and start fresh.</strong></span>
 
 ## Turning on the recording feature
 
 RetroArch uses the [ffmpeg](https://ffmpeg.org) program to record video.  To turn on recording, we need to log into the Pi using ssh, download and compile ffmpeg, and then recompile RetroArch with recording support turned on.
 
-### Log in to the Pi using ssh
+### Open a command line on the Pi
+
+#### Log in to the Pi using ssh
 
 Find out the IP address of your Pi by choosing "RetroPie setup" in the RetroPie menu and choosing "Show IP Address".  Write down the IP address (four numbers with dots in between - for example: `192.168.0.3`).
 
@@ -34,11 +36,19 @@ If this works right, you should see something like this:
 ![](//artificialworlds.net/blog/wp-content/uploads/retro-login.png)
 (The RetroPie Project joystick logo)
 
-\* if you don't have Linux, this should work OK on a Mac, or on Windows you could try using [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
+* Note: if you don't have Linux, this should work OK on a Mac, or on Windows you could try using [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
+
+#### Open a command line directly from the Pi
+
+If logging in through SSH is too cumbersome, you can use the command line on RetroPie directly. Just plug a keyboard and a mouse, and you're set.
+
+The easiest way is just to exit EmulationStation: open the menu (start), then "Quit", then "Quit EmulationStation", and you'll be sent to the command line. Once you're done with your commands, just type `reboot` to restart the Pi.
+
+An alternative way is to use the [desktop environment](https://retropie.org.uk/docs/FAQ/#where-did-the-desktop-go) : install it through the Retropie-Setup tool, in Configuration / Tools > Raspbiantools > Install Pixel Desktop Environment. It then adds an entry in the "Ports" section of Retropie, where you can launch the desktop, and from there access a command line, file browser, and anything you like.
 
 ### Download and compile ffmpeg
 
-Log in to the RetroPie as described above.  The commands shown below should all be typed in to the window where you are logged in to the RetroPie.
+Log in to the RetroPie as described above. The commands shown below should all be typed in to the window where you are logged in to the RetroPie.
 
 Download the script ffmpeg-install.sh by typing this:
 
@@ -64,7 +74,9 @@ FFmpeg and Codec Installation Complete
 
 If so, you are ready to move on to recompiling RetroArch:
 
-### Recompile RetroArch with recording turned on
+### Recompile RetroArch with recording turned on (optional)
+
+Newer versions of RetroArch come with the ability to record gameplay, and you shouldn't have to rebuild it. To check if your version supports recording, open RetroArch (from the main RetroPie menu: Retropie (configuration) > RetroArch) and check if it has an entry in Settings > Recording.
 
 Download the script build-retroarch-with-ffmpeg.sh by typing this:
 
@@ -105,6 +117,19 @@ Log into the RetroPie as described in the first section, and type this to downlo
 ```
 wget https://github.com/andybalaam/retropie-recording/blob/master/recording-config.cfg
 ```
+
+### Check that recording works
+
+You can launch gameplay recording at any time using RetroArch. Try it out before you go any further.
+
+- From the main RetroPie menu > RetroPie (configuration) > RetroArch
+- Settings > Configuration > Save Configuration on exit = ON
+- Settings > Recording > Record Quality = Custom ; Custom Record Configuration = browse to your `recording-config.cfg` file
+- Quit RetroArch
+- Launch a game using a Libretro emulator (check that it says "lr-xxx" when launching the game)
+- Open the RetroArch menu (hotkey + X button) > Start Recording > play a while > RA menu > Stop Recording
+- Exit the game, then open a command line using your preferred method
+- Use `ls /home/pi` and check that a video file has been created.
 
 ### Create a launch config for your emulator
 
@@ -163,17 +188,18 @@ This will copy all recorded videos from your RetroPie onto your computer (into y
 
 Now you should delete the files from your RetroPie.  Log in to the RetroPie as described in the first section, and delete all recording files by typing this:
 
-**Note:** This deletes all your recordings, and you can't undo!
+<span style="color: red;"><strong>Note: This deletes all your recordings, and you can't undo!</strong></span>
 
 ```
 rm recording_*.mkv
 ```
 
-**Note:** This deletes all your recordings, and you can't undo!
+<span style="color: red;"><strong>Note: This deletes all your recordings, and you can't undo!</strong></span>
 
 ### Safer: recording onto a USB stick
 
 **Note**: recording directly onto the RetroPie like we described above is dangerous because you could fill up all the disk space or corrupt your SD card, which could make RetroPie stop working, meaning you need to wipe your SD card and set up RetroPie again.
 
-It's safer to record onto a separate USB disk.  To find out how, read "Recording to an External Storage Device" in [Retro Resolution's guide](https://retroresolution.com/2016/07/06/recording-live-gameplay-in-retropies-retroarch-emulators-natively-on-the-raspberry-pi/#li_performance_external_hdd).
+It's safer and faster to record onto a separate USB disk. To find out how, read "Recording to an External Storage Device" in [Retro Resolution's guide](https://retroresolution.com/2016/07/06/recording-live-gameplay-in-retropies-retroarch-emulators-natively-on-the-raspberry-pi/#li_performance_external_hdd): change the `--record` parameter in your launch config to point to your USB stick (probably something like `/media/usb0/` but check beforehand).
 
+If you want to grab your recordings easily from another PC, you can save them in a "captures" subfolder in the main roms folder, and then access the roms share by navigating to `\\retropie\roms`.
