@@ -2,7 +2,7 @@
 
 Credits: this is a slightly corrected and shortened version of [How To Record A GamePlay Video From A RetroPie](http://selsine.com/2016/10/15/how-to-record-a-game-play-video-from-a-retropie/) [Recording Live Gameplay in RetroPie’s RetroArch Emulators Natively on the Raspberry Pi](https://retroresolution.com/2016/07/06/recording-live-gameplay-in-retropies-retroarch-emulators-natively-on-the-raspberry-pi/) by Retro Resolution.  Andy Balaam's blog post, which was moved to here, is at: https://www.artificialworlds.net/blog/2018/01/07/recording-gameplay-videos-on-retropie/ .
 
-[RetroPie](https://retropie.org.uk/) [RetroArch](http://www.retroarch.com/).  RetroArch has a feature to record gameplay videos, but the current version of RetroPie has it disabled, presumably because it was thought to be too intensive to run properly on a Raspberry Pi.
+[RetroPie](https://retropie.org.uk/) is based on [RetroArch](http://www.retroarch.com/).  RetroArch has a feature to record gameplay videos, but the current version of RetroPie has it disabled, presumably because it was thought to be too intensive to run properly on a Raspberry Pi.
 
 These instructions tell you how to turn the recording feature on, and set it up.  This works perfectly on my Raspberry Pi 3, allowing me to record video and sound from games I am playing.
 
