@@ -129,7 +129,7 @@ You can launch gameplay recording at any time using RetroArch. Try it out before
 - Launch a game using a Libretro emulator (check that it says "lr-xxx" when launching the game)
 - Open the RetroArch menu (hotkey + X button) > Start Recording > play a while > RA menu > Stop Recording
 - Exit the game, then open a command line using your preferred method
-- Use `ls /home/pi` and check that a video file has been created.
+- Use `ls /home/pi` and check that a video file has been created. If you want to change the folder where the files are created, edit the `/opt/retropie/configs/all/retroarch.cfg` file, and change the `recording_output_directory` parameter, for instance `/home/pi/RetroPie/roms`.
 
 ### Create a launch config for your emulator
 
